@@ -128,6 +128,7 @@ handleCloseedit=()=>
  render()
  {
     const {classes}=this.props;
+    console.log(this.props);
 return(
     
         <div dir="rtl" className={classes.cardContainer}>
@@ -185,8 +186,8 @@ return(
                             }  
                         <CustomTableCell align="right" > 
                         
-                        <Link component={RouterLink} to={"/1/1"}>
-                         
+                        <Link component={RouterLink} to={`/${this.props.match.params.postid}/${this.state.plans[i].id}`}>
+                            
                             <Button onClick={this.handleClickopenedit}className={classes.change}> تعديل التفاصيل</Button>
                         </Link>
                         </CustomTableCell>       
@@ -240,7 +241,7 @@ return(
                              </Button>
                     </DialogActions>
     </Dialog>
-    <Route  path="/:postid/:id" component={Details}/>
+   
 </div>
      )
  }
