@@ -11,6 +11,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import TextField from '@material-ui/core/TextField';
 
+
 const styles = {
 
     details:{
@@ -21,14 +22,15 @@ const styles = {
     content:{
         marginTop:50,
         color:"black",
-        align:"right",
     },
     changeButton:{
-        background:"#27ae60"
+        background:"#27ae60",
+        width:"32%",
     },
     container:{
         marginRight:20
-    }
+    },
+
 }
 
 
@@ -64,31 +66,32 @@ console.log(this.state)
                         </Grid>
                     
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="h6">   من : {this.state.details[0].from} </Typography>
+                        <Typography  variant="subtitle1"> <strong>   من : {this.state.details[0].from} </strong> </Typography>
                         </Grid>
 
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="h6">   الي : {this.state.details[0].to} </Typography>
+                        <Typography  variant="subtitle1">  <strong> الي : {this.state.details[0].to} </strong></Typography>
                         </Grid>
 
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="h6"> نوع الشاحنة : {this.state.details[0].cartype} </Typography>
+                        <Typography  variant="subtitle1"><strong> نوع الشاحنة : {this.state.details[0].cartype} </strong> </Typography>
                         </Grid>
 
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="h6">  نوع الحمولة : {this.state.details[0].weighttype} </Typography>
+                        <Typography  variant="subtitle1"> <strong> نوع الحمولة : {this.state.details[0].weighttype} </strong> </Typography>
                         </Grid>
                         
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="h6">  وزن الحمولة : {this.state.details[0].weight} </Typography>
+                        <Grid item xs={12} className={classes.content}>
+                       <Typography  variant="subtitle1"> <strong> وزن الحمولة : {` ${this.state.details[0].weight}  `}  </strong> </Typography>
+                        </Grid>
+                        
+                        <Grid item xs={12} className={classes.content}>
+                        <Typography  variant="subtitle1"> <strong> الوقت : {this.state.details[0].time} </strong> </Typography>
                         </Grid>
 
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="h6">  الوقت : {this.state.details[0].time} </Typography>
-                        </Grid>
-
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="h6">  ملاحظات : {this.state.details[0].notes} </Typography>
+                        <Typography  variant="subtitle1"><strong>  ملاحظات : {this.state.details[0].notes}</strong> </Typography>
+                        
                         </Grid>
 
                     </Grid>
@@ -98,133 +101,124 @@ console.log(this.state)
                         <Grid item xs={12}  className={classes.content}>
                         <Typography variant="h4">تعديل البيانات</Typography>
                         </Grid>
-                    
-                        <Grid item xs={12}  className={classes.content}>
-                            <Typography  variant="subtitle1">   الكارتة  
-                            </Typography>
+
+                        <Grid item xs={12}  className={classes.textfields}>
                             <TextField
+                           
                                 id="filled-number"
                                 type="number"
+                                label="الكارتة"
                                 margin="normal"
+                                
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1">بيات
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
+                                label="بيات"
                                 margin="normal"  
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1">تحويله
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
+                                label="تحويله"
                                 margin="normal"  
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"> المخالفات
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
+                                label="المخالفات"
                                 margin="normal"  
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"> المعدية
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
+                                label="المعدية"
                                 margin="normal"  
+                                
                                 />
                         </Grid>
                         
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"> سعر الطن
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
                                 name="tonprice"
+                                label="سعر الطن"
                                 onChange={this.handleChange}
                                 margin="normal"  
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"> العهدة
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
+                                label="العهدة"
                                 margin="normal"  
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"> قيمة اشتراك البرنامج
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
+                                label="قيمة اشتراك البرنامج"
                                 margin="normal"  
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"> حساب السائق
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
                                 name="drivercost"  
+                                label=" حساب السائق"
                                 margin="normal"
                                 onChange={this.handleChange}
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1">  مصاريف تسويق
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
+                                label=" مصاريف تسويق"
                                 margin="normal"  
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1">  السعر الكلي 
-                                </Typography>
+                        <Grid item xs={12}  className={classes.textfields}>
                                 <TextField
                                 id="filled-number"
                                 type="number"
+                                label=" السعر الكلي"
                                 margin="normal"  
                                 />
                         </Grid>
 
-                        <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1">  ملاحظات  
-                                </Typography>
+                        <Grid item xs={12} className={classes.textfields}>
                              <TextField
                                 id="filled-multiline-flexible"
                                 multiline
                                 rowsMax="4"
+                                label="ملاحظات"
                                 margin="normal"
                                 />
                         </Grid>
                         <Grid item xs={12}  className={classes.content}>
-                        <Button onClick={this.handleChange}variant="contained" className={classes.changeButton}> تعديل</Button>
+                        <Button onClick={this.handleChange}variant="contained" className={classes.changeButton}>تعديل</Button>
                         </Grid>
                         
                     </Grid>
