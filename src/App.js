@@ -19,4 +19,17 @@ class App extends Component{
         )
     }
 }
+
 export default App
+/*import React,{Component} from 'react'
+
+ class App extends React.Component 
+{
+    render()
+    {
+        return(
+            <p>APP</p>
+        )
+    }
+}
+export default App*/

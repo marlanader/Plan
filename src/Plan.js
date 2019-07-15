@@ -8,7 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
-import { textAlign } from "@material-ui/system";
+import { textAlign, flexbox } from "@material-ui/system";
 import { Button, AppBar } from "@material-ui/core";
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -23,6 +23,8 @@ import Divider from '@material-ui/core/Divider';
 import Details from "./Details";
 import { Route ,Link as RouterLink } from 'react-router-dom'
 import Link from '@material-ui/core/Link';
+import BackIcon from '@material-ui/icons/KeyboardBackspace';
+import Chip from '@material-ui/core/Chip';
 const styles = {
     cardContainer: {
         width:'80%'
@@ -35,8 +37,9 @@ const styles = {
      height:500,
     },
     container:{
-        padding:50,
+        padding:40,
         textAlign:'right',
+        width:'100%'
         
     },
     view:{
@@ -68,7 +71,14 @@ const styles = {
         marginRight:250
     },
     
+    backicon:{
+        borderRadius:50,
+        marginRight:30
+    },
     
+    chip:{
+        width:"40%"
+    }
     
 }
 
@@ -128,36 +138,41 @@ handleCloseedit=()=>
  render()
  {
     const {classes}=this.props;
-    console.log(this.props);
+   
 return(
     
         <div dir="rtl" className={classes.cardContainer}>
            
     <Paper className={classes.root} >
-        <Grid  className={classes.container} container spacing={24}>
-            <Grid item xs={12} sm={3}>
-                <Typography variant="h5" gutterBottom>
-                    {this.state.plans[0].name}
-                </Typography>
+        <Grid  className={classes.container} container spacing={16}>
+            <Grid item xs={12} sm={4}>
+                <Chip label= {this.state.plans[0].name} className={classes.chip} variant="outlined" />
+               
             </Grid>
-            <Grid item  xs={12} sm={3}>
-                <Typography  variant="h5" gutterBottom>
-                {this.state.plans[0].date}
-                </Typography>
+            <Grid item  xs={12} sm={4}>
+                <Chip label= {this.state.plans[0].date} className={classes.chip} variant="outlined" />
+                
             </Grid>
-            <Grid item  xs={12} sm={4} align="left" >
+            
+            <Grid item  xs={12} sm={4} >
+            <Button className={classes.backicon}  align="left" variant="contained">
+            <BackIcon/>
+            </Button>
+                </Grid>
+            
+        </Grid>
+        <Grid item  xs={12} sm={6} align="left" className={classes.buttons} >
                 <Button className={classes.view} variant="contained">إظهار الشركة</Button>
                 <Button className={classes.done} variant="contained">تم التعيين</Button>
 
             </Grid>
-            
-        </Grid>
-        <Divider variant="middle"/>
-        <Grid container spacing={16}>
-            <Grid item xs={12} sm={3}>
-            <Typography align="right" variant="h4" gutterBottom> الطلبات</Typography>
 
-            </Grid>
+        <Divider variant="middle"/>
+            <Grid container spacing={16}>
+                <Grid item xs={12} sm={3}>
+                <Typography align="right" variant="h4" gutterBottom> الطلبات</Typography>
+
+                </Grid>
             <Table className={classes.table}>
                 <TableHead>
                     <TableRow >  
@@ -169,11 +184,11 @@ return(
                     </TableRow>
                     </TableHead>
                     <TableBody> 
-                    {this.state.plans.map((plans,i) => (
+                    {this.state.plans.map((plan,i) => (
                     <TableRow className={classes.row}>
-                    <CustomTableCell align="right">{this.state.plans[i].name}</CustomTableCell>
-                        <CustomTableCell align="right">{this.state.plans[i].destination}</CustomTableCell>
-                            {this.state.plans[i].drivername==""?
+                    <CustomTableCell align="right">{plan.name}</CustomTableCell>
+                        <CustomTableCell align="right">{plan.destination}</CustomTableCell>
+                            {plan.drivername==""?
                                 <CustomTableCell align="right">
                                     <Button  onClick={this.handleClickopen}className={classes.add_driver} variant="contained">
                                         عين السائق
@@ -181,12 +196,12 @@ return(
                                 </CustomTableCell>
                                     :
                                     <CustomTableCell align="right"><Typography variant="h6" gutterBottom>
-                                        {this.state.plans[i].drivername}</Typography>
+                                        {plan.drivername}</Typography>
                                     </CustomTableCell>
                             }  
                         <CustomTableCell align="right" > 
                         
-                        <Link component={RouterLink} to={`/${this.props.match.params.postid}/${this.state.plans[i].id}`}>
+                        <Link component={RouterLink} to={`/${this.props.match.params.postid}/${plan.id}`}>
                             
                             <Button onClick={this.handleClickopenedit}className={classes.change}> تعديل التفاصيل</Button>
                         </Link>
