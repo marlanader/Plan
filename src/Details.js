@@ -3,13 +3,8 @@ import React, {Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import CloseIcon from '@material-ui/icons/Close';
-import Toolbar from '@material-ui/core/Toolbar';
 import TextField from '@material-ui/core/TextField';
+import BackIcon from '@material-ui/icons/KeyboardBackspace';
 
 
 const styles = {
@@ -20,17 +15,23 @@ const styles = {
         borderLeft: '1px solid grey'
     },
     content:{
-        marginTop:50,
-        color:"black",
+        padding:20,
+        color:"black"
     },
     changeButton:{
         background:"#27ae60",
-        width:"32%",
+        width:"40%",
     },
     container:{
-        marginRight:20
+        marginRight:25
     },
-
+    backicon:{
+        padding:10
+    },
+    header:{
+            color:"black",
+            marginBottom:10
+    }
 }
 
 
@@ -58,50 +59,60 @@ console.log(this.state)
    return(
         <div dir="rtl" >
  
+         <Grid item className={classes.backicon}   align="left" xs={12} sm={12} >
+             <Button  variant="contained">
+             <BackIcon/>
+             </Button>
+        </Grid>
+
          <Grid container  spacing={24}>
             <Grid item xs={12} sm={6} className={classes.details} > 
+            
                 <Grid  align="right" container  spacing={24} className={classes.container}>
-                        <Grid item xs={12}  className={classes.content}>
+               
+                        <Grid item xs={12}  className={classes.header}>
                         <Typography variant="h4" >تفاصيل الرحلة</Typography>
                         </Grid>
                     
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"> <strong>   من : {this.state.details[0].from} </strong> </Typography>
+                        <Typography variant="h6" > <strong>   من : {this.state.details[0].from} </strong> </Typography>
                         </Grid>
 
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1">  <strong> الي : {this.state.details[0].to} </strong></Typography>
+                        <Typography  variant="h6">  <strong> الي : {this.state.details[0].to} </strong></Typography>
                         </Grid>
 
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"><strong> نوع الشاحنة : {this.state.details[0].cartype} </strong> </Typography>
+                        <Typography  variant="h6"><strong> نوع الشاحنة : {this.state.details[0].cartype} </strong> </Typography>
                         </Grid>
 
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"> <strong> نوع الحمولة : {this.state.details[0].weighttype} </strong> </Typography>
+                        <Typography  variant="h6"> <strong> نوع الحمولة : {this.state.details[0].weighttype} </strong> </Typography>
                         </Grid>
                         
                         <Grid item xs={12} className={classes.content}>
-                       <Typography  variant="subtitle1"> <strong> وزن الحمولة : {` ${this.state.details[0].weight}  `}  </strong> </Typography>
+                       <Typography  variant="h6"> <strong> وزن الحمولة : {` ${this.state.details[0].weight}  `}  </strong> </Typography>
                         </Grid>
                         
                         <Grid item xs={12} className={classes.content}>
-                        <Typography  variant="subtitle1"> <strong> الوقت : {this.state.details[0].time} </strong> </Typography>
+                        <Typography  variant="h6"> <strong> الوقت : {this.state.details[0].time} </strong> </Typography>
                         </Grid>
 
                         <Grid item xs={12}  className={classes.content}>
-                        <Typography  variant="subtitle1"><strong>  ملاحظات : {this.state.details[0].notes}</strong> </Typography>
+                        <Typography  variant="h6"><strong>  ملاحظات : {this.state.details[0].notes}</strong> </Typography>
                         
                         </Grid>
 
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={6} className={classes.header} > 
+                <Grid item xs={12} sm={4} className={classes.header} > 
+               
+           
                 <Grid container align="right" spacing={24} className={classes.container}>
-                        <Grid item xs={12}  className={classes.content}>
+                        <Grid item xs={12} sm={6} className={classes.header}>
                         <Typography variant="h4">تعديل البيانات</Typography>
                         </Grid>
-
+                        
                         <Grid item xs={12}  className={classes.textfields}>
                             <TextField
                            
@@ -222,11 +233,11 @@ console.log(this.state)
                         </Grid>
                         
                     </Grid>
+                    
                 </Grid>
-            
-           
+               
         </Grid>
-       
+        
     </div>
                 )
             }
