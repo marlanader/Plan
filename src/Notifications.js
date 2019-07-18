@@ -60,7 +60,7 @@ const styles={
         fontSize:16
     }
 }
-class Actions extends Component
+class Notifications extends Component
 {
     state={
         information:[{status:"تم التعيين", note:"لقد تم التعيين"}
@@ -97,4 +97,4 @@ class Actions extends Component
     }
 }
 
-export default withStyles(styles)(Actions)
+export default withStyles(styles)(Notifications)

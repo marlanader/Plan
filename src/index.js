@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Actions from './Actions'
+import Notifications from './Notifications'
 import Loadable from 'react-loadable'
 import { render } from 'react-dom'
 
@@ -19,7 +19,7 @@ export default class Index extends React.Component{
 }
 render(<Index />, document.getElementById('root'))
 */
-ReactDOM.render(<Actions/>, document.getElementById('root'));
+ReactDOM.render(<Notifications/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
