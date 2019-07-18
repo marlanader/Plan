@@ -85,7 +85,7 @@ class Actions extends Component
                             {info.status=="إنتهت"? <Chip label={info.status} className={classes.done}/>:null} 
                           <Typography variant="subtitle1"  className={classes.description}>
                               {info.note}
-                            </Typography>
+                            </Typography> 
                                <InfoIcon/>
                         </CardContent>
                     </Card>
