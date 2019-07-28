@@ -6,17 +6,25 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CardContent from '@material-ui/core/CardContent';
-import { borderRadius, flexbox } from "@material-ui/system";
-import InfoIcon from "@material-ui/icons/Info";
+import { flexbox } from "@material-ui/system";
+import DoneIcon from "@material-ui/icons/CheckCircle";
+import EditIcon from "@material-ui/icons/DonutLarge";
+import Endicon from "@material-ui/icons/HighlightOff"
 const styles={
 
     div:{
         display:'flex', 
         justifyContent:'center'
     },
+    Doneicon:{
+       color:'green'
+    },
+    Endicon:{
+       color:'red'
+    },
     card:{
-            width:"80%",
-         marginTop:20,   
+        width:"80%",
+        marginTop:20,   
         marginBottom:20,
         minWidth: 200,
         height:50,
@@ -47,16 +55,14 @@ const styles={
        
     },
     edit:
-    {
-        
+    {  
         width:150,
         background:"#27ae60",
         fontSize:16
     },
     done:
-    {
-        
-        width:150,
+    {  
+         width:150,
         fontSize:16
     }
 }
@@ -80,13 +86,15 @@ class Notifications extends Component
                 <div className={classes.div}>
                     <Card  className={classes.card}>
                         <CardContent className={classes.content} >
-                            {info.status=="تعديل خطة"? <Chip label={info.status} className={classes.edit}/>:null} 
-                            {info.status=="تم التعيين"? <Chip label={info.status} className={classes.assign}/>:null} 
-                            {info.status=="إنتهت"? <Chip label={info.status} className={classes.done}/>:null} 
+                            {info.status=="تعديل خطة"&&<Chip label={info.status} className={classes.edit}/>} 
+                            {info.status=="تم التعيين" &&<Chip label={info.status} className={classes.assign}/>} 
+                            {info.status=="إنتهت" &&<Chip label={info.status} className={classes.done}/>} 
                           <Typography variant="subtitle1"  className={classes.description}>
                               {info.note}
                             </Typography> 
-                               <InfoIcon/>
+                            {info.status=="تعديل خطة"&& <EditIcon/>} 
+                            {info.status=="تم التعيين"&& <DoneIcon className={classes.Doneicon}/>} 
+                            {info.status=="إنتهت"&& <Endicon className={classes.Endicon}/>}  
                         </CardContent>
                     </Card>
                 </div>

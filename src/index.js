@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Notifications from './Notifications'
+import Notifications from "./Notifications"
 import Loadable from 'react-loadable'
 import { render } from 'react-dom'
 
