@@ -1,25 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Notifications from "./Notifications"
-import Loadable from 'react-loadable'
-import { render } from 'react-dom'
+import App from './App';
+import MyDocument from './MyDocument'
+import {PDFViewer} from '@react-pdf/renderer';
 
 
-/*const LoadableC= Loadable({
-    loader:()=>import('./App'),
-    loading: Loading,
-})
+const ReactPdf = () => (
+  <PDFViewer>
+    <MyDocument />
+  </PDFViewer>
+);
+ReactDOM.render(<App />, document.getElementById('root'));
 
-export default class Index extends React.Component{
-    render()
-    {
-        return<LoadableC />;
-    }
-}
-render(<Index />, document.getElementById('root'))
-*/
-ReactDOM.render(<Notifications/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
